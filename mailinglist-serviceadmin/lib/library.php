@@ -1,8 +1,8 @@
 <?php
 
-include("data.php");
-include("sql.php");
-include("rpc.php");
+include_once("data.php");
+include_once("sql.php");
+include_once("rpc.php");
 
 class library {
 

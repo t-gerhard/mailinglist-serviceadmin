@@ -1,6 +1,6 @@
 <?php
-include("config.php");
-include("data.php");
+include_once("config.php");
+include_once("data.php");
 
 class sql {
 

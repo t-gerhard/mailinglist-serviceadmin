@@ -1,5 +1,5 @@
 <?php
-include("lib/library.php");
+include_once("lib/library.php");
 
 function handleForm() {
 	if(isset($_POST['email']) && isset($_POST['fullname']) && isset($_POST['title']) && isset($_POST['status']) && isset($_POST['faculty']) && isset($_POST['project'])) {

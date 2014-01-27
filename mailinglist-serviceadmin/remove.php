@@ -1,5 +1,5 @@
 <?php
-include("lib/library.php");
+include_once("lib/library.php");
 
 function removeAddress() {
 	library::remove($_POST['email']);
