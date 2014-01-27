@@ -4,7 +4,7 @@ include("data.php");
 include("sql.php");
 include("rpc.php");
 
-class data {
+class library {
 
 	# adds a new user to the list.
 	# argument is a data entry like in data.php

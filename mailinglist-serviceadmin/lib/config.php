@@ -1,5 +1,8 @@
 <?php
 
+#some thing something same thing
+
+$redirect_target = "http://ilikecheese.com";
 
 # SQL settings
 
