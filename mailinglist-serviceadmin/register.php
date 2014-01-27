@@ -41,12 +41,8 @@ if(isset($_POST['email'])) {
 					</td>
 				</tr>
 				<tr>
-					<td>First Name</td>
-					<td><input type="text/css" name="firstname" /></td>
-				</tr>
-				<tr>
-					<td>Last Name</td>
-					<td><input type="text/css" name="lastname" /></td>
+					<td>Full Name</td>
+					<td><input type="text/css" name="fullname" /></td>
 				</tr>
 				<tr>
 					<td>E-Mail</td>
