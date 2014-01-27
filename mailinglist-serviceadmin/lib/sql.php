@@ -20,7 +20,7 @@ class sql {
 	}
 
 	public static function add($entry) {
-		if(getClass($entry) == "entry") {
+		if(get_class($entry) == "entry") {
 			$this->open_db();
 			
 			$statement = $this->db->prepare("INSERT INTO '" . $sqlite_table . "' (email,fullname,title,status,faculty,project) 
