@@ -73,7 +73,7 @@ class sql {
 	public static function list_entry() {
 			$this->open_db();
 			
-			$statement = "SELECT * FROM '" $sqlite_table "';";
+			$statement = "SELECT * FROM '" . $sqlite_table . "';";
 			
 			$query = sqlite_query($this->db, $statement);
 			$return = sqlite_fetch_all($query, SQLITE_ASSOC);
