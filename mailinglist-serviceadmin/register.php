@@ -29,7 +29,7 @@ if(isset($_POST['email'])) {
 		</title>
 	</head>
 	<body>
-		<form action="registration.php" method="post">
+		<form action="register.php" method="post">
 			<table>
 				<tr>
 					<td>Title</td>
