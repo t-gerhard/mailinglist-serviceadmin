@@ -10,8 +10,7 @@ class sql {
 		
 		$error_message = NULL;
 
-		self::$db = new SQLite3();
-		self::$db->open (config::$sqlite_database, 0666, $error_message);
+		self::$db = new SQLite3(config::$sqlite_database);
 		if($error_message != "") {
 			return $error_message;
 		}
