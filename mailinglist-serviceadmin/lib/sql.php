@@ -7,7 +7,10 @@ class sql {
 	private static $db;
 	
 	private static function open_db() {
-		$this->db = SQLite3::open ($sqlite_database, 0666, $error_message);
+
+		$error_message = NULL;
+
+		self::db = SQLite3::open ($sqlite_database, 0666, $error_message);
 		if($error_message != "") {
 			return $error_message;
 		}
@@ -16,14 +19,14 @@ class sql {
 	}
 
 	private static function close_db() {
-		SQLite3::close($this->db);
+		SQLite3::close(self::db);
 	}
 
 	public static function add($entry) {
 		if(get_class($entry) == "entry") {
 			self::open_db();
 			
-			$statement = $this->db->prepare("INSERT INTO '" . $sqlite_table . "' (email,fullname,title,status,faculty,project) 
+			$statement = self::db->prepare("INSERT INTO '" . $sqlite_table . "' (email,fullname,title,status,faculty,project) 
 											VALUES (:email,:fullname,:title,:status,:faculty,:project);");
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
@@ -33,7 +36,7 @@ class sql {
 			$statement->bindValue(':faculty', $entry->faculty, SQLITE3_TEXT);
 			$statement->bindValue(':project', $entry->project, SQLITE3_TEXT);
 
-			if(!SQLite3::exec($this->db, $statement->execute(), $error_message)) {
+			if(!SQLite3::exec(self::db, $statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -51,12 +54,12 @@ class sql {
 		if($email != "") {
 			self::open_db();
 			
-			$statement = $this->db->prepare("DELETE FROM '" . $sqlite_table . "' 
+			$statement = self::db->prepare("DELETE FROM '" . $sqlite_table . "' 
 				WHERE email = :email");
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
 
-			if(!SQLite3::exec($this->db, $statement->execute(), $error_message)) {
+			if(!SQLite3::exec(self::db, $statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -75,7 +78,7 @@ class sql {
 			
 			$statement = "SELECT * FROM '" . $sqlite_table . "';";
 			
-			$query = SQLite3::query($this->db, $statement);
+			$query = SQLite3::query(self::db, $statement);
 			$return = SQLite3::fetch_all($query, SQLITE_ASSOC);
 
 			self::close_db();
