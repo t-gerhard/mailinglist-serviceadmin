@@ -1,4 +1,5 @@
 <?php
+include_once("config.php");
 include_once("lib/library.php");
 
 function handleForm() {
@@ -7,7 +8,7 @@ function handleForm() {
 		$entry = new entry($_POST['email'],$_POST['fullname'],$_POST['title'],$_POST['status'],$_POST['faculty'],$_POST['project']);
 		library::add($entry);
 
-		Header("Location: " . $redirect_target);
+		Header("Location: " . config::$redirect_target);
 		exit(); 
 	} else {
 		echo "Error: Some information is missing";

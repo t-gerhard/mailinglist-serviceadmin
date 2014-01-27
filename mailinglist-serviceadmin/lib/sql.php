@@ -57,9 +57,8 @@ class sql {
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
 
-			if(!self::$db->exec($statement->execute(), $error_message)) {
-				return $error_message;				
-			}
+			$statement->execute();
+		
 
 			self::close_db();	
 
