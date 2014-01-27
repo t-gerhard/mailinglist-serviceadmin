@@ -9,12 +9,12 @@ class entry {
 	public $project;
 
 	function __construct($email,$fullname,$title,$status,$faculty,$project) {
-		$this->$email = $email;
-		$this->$fullname = $fullname;
-		$this->$title = $title;
-		$this->$status = $status;
-		$this->$faculty = $faculty;
-		$this->$project = $project;
+		$this->email = $email;
+		$this->fullname = $fullname;
+		$this->title = $title;
+		$this->status = $status;
+		$this->faculty = $faculty;
+		$this->project = $project;
 	}
 }
 

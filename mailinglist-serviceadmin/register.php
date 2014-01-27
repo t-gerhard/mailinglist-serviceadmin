@@ -3,6 +3,7 @@ include_once("lib/library.php");
 
 function handleForm() {
 	if(isset($_POST['email']) && isset($_POST['fullname']) && isset($_POST['title']) && isset($_POST['status']) && isset($_POST['faculty']) && isset($_POST['project'])) {
+		
 		$entry = new entry($_POST['email'],$_POST['fullname'],$_POST['title'],$_POST['status'],$_POST['faculty'],$_POST['project']);
 		library::add($entry);
 
