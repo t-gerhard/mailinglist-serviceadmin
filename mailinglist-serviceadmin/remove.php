@@ -4,7 +4,7 @@ include("lib/library.php");
 function removeAddress() {
 	library::remove($_POST['email']);
 
-	Header("Location: " . $_SERVER['HTTP_REFERER'];);
+	Header("Location: " . $_SERVER['HTTP_REFERER']);
 	exit(); 
 }
 
