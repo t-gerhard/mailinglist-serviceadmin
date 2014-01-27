@@ -51,10 +51,12 @@ class sql {
 		if($email != "") {
 			$this->open_db();
 			
-			statement = "DELETE FROM '" . $sqlite_table . "' 
-				WHERE email = '" . $entry->email . "';";
+			$statement = $this->db->prepare("DELETE FROM '" . $sqlite_table . "' 
+				WHERE email = :email");
 
-			if(!sqlite_exec($this->db,  mysql_real_escape_string($statement), $error_message)) {
+			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
+
+			if(!sqlite_exec($this->db, $statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 

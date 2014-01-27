@@ -1,6 +1,4 @@
 <?php
-include("lib/data.php");
-include("lib/config.php");
 include("lib/library.php");
 
 function handleForm() {
