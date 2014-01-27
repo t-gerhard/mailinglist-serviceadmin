@@ -7,10 +7,11 @@ class sql {
 	private static $db;
 	
 	private static function open_db() {
-
+		
 		$error_message = NULL;
 
-		self::$db = SQLite3::open (config::$sqlite_database, 0666, $error_message);
+		self::$db = new SQLite3();
+		self::$db->open (config::$sqlite_database, 0666, $error_message);
 		if($error_message != "") {
 			return $error_message;
 		}
@@ -19,7 +20,7 @@ class sql {
 	}
 
 	private static function close_db() {
-		SQLite3::close(self::$db);
+		self::$db->close();
 	}
 
 	public static function add($entry) {
@@ -36,7 +37,7 @@ class sql {
 			$statement->bindValue(':faculty', $entry->faculty, SQLITE3_TEXT);
 			$statement->bindValue(':project', $entry->project, SQLITE3_TEXT);
 
-			if(!SQLite3::exec(self::$db, $statement->execute(), $error_message)) {
+			if(!self::$db->exec($statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -59,7 +60,7 @@ class sql {
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
 
-			if(!SQLite3::exec(self::$db, $statement->execute(), $error_message)) {
+			if(!self::$db->exec($statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -78,8 +79,8 @@ class sql {
 			
 			$statement = "SELECT * FROM '" . config::$sqlite_table . "';";
 			
-			$query = SQLite3::query(self::$db, $statement);
-			$return = SQLite3::fetch_all($query, SQLITE_ASSOC);
+			$query = self::$db->query($statement);
+			$return = $query->fetch_all();
 
 			self::close_db();
 			
