@@ -78,20 +78,5 @@ if(isset($_POST['email'])) {
 			</table>
 		</form>
 	</body>
-</html>			</tr>
-				<tr>
-					<td>Project</td>
-					<td>
-						<select name="faculty">
-							<option value="">Informatik</option>
-							<option value="Doctor">Eletrotechnik</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2"><button type="submit">Submit</button> <button type="Cancel">Cancel</button></td>
-			</table>
-		</form>
-	</body>
-</html>
+</html>	
 
