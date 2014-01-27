@@ -29,12 +29,12 @@ class sql {
 			$statement = self::$db->prepare("INSERT INTO '" . config::$sqlite_table . "' (email,fullname,title,status,faculty,project) 
 											VALUES (:email,:fullname,:title,:status,:faculty,:project);");
 
-			$statement->bindValue(':email', $entry->$email, SQLITE3_TEXT);
-			$statement->bindValue(':fullname', $entry->$fullname, SQLITE3_TEXT);
-			$statement->bindValue(':title', $entry->$title, SQLITE3_TEXT);
-			$statement->bindValue(':status', $entry->$status, SQLITE3_TEXT);
-			$statement->bindValue(':faculty', $entry->$faculty, SQLITE3_TEXT);
-			$statement->bindValue(':project', $entry->$project, SQLITE3_TEXT);
+			$statement->bindValue(":email", $entry->$email, SQLITE3_TEXT);
+			$statement->bindValue(":fullname", $entry->$fullname, SQLITE3_TEXT);
+			$statement->bindValue(":title", $entry->$title, SQLITE3_TEXT);
+			$statement->bindValue(":status", $entry->$status, SQLITE3_TEXT);
+			$statement->bindValue(":faculty", $entry->$faculty, SQLITE3_TEXT);
+			$statement->bindValue(":project", $entry->$project, SQLITE3_TEXT);
 
 			$error_message = NULL;
 			if(!self::$db->exec($statement->execute(), $error_message)) {
