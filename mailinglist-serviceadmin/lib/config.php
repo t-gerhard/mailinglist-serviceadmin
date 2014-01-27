@@ -6,7 +6,7 @@ $redirect_target = "http://ilikecheese.com";
 
 # SQL settings
 
-$sqlite_database = "/var/sqlite/database"
+$sqlite_database = "/var/sqlite/database";
 
 # select the table.
 # shema:
@@ -20,7 +20,7 @@ $sqlite_database = "/var/sqlite/database"
 #	project VARCHAR(100)
 # );
 
-$sqlite_table = ""
+$sqlite_table = "";
 
 
 
@@ -29,10 +29,10 @@ $sqlite_table = ""
 
 
 # RPC settings
-$rpc_host = ""
-$rpc_port = ""
-$rpc_username = ""
-$rpc_password = ""
+$rpc_host = "";
+$rpc_port = "";
+$rpc_username = "";
+$rpc_password = "";
 
 ?>
 
