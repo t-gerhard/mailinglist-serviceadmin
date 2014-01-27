@@ -36,10 +36,7 @@ class sql {
 			$statement->bindValue(":faculty", $entry->faculty, SQLITE3_TEXT);
 			$statement->bindValue(":project", $entry->project, SQLITE3_TEXT);
 
-			$error_message = NULL;
-			if(!self::$db->exec($statement->execute(), $error_message)) {
-				return $error_message;				
-			}
+			$statement->execute();
 
 			self::close_db();	
 
