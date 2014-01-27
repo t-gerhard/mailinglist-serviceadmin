@@ -20,7 +20,7 @@ class library {
 		# submit data entry to RPC. on error, remove the SQL entry and return the error code.
 		$rpc_res = rpc::add($dataentry);
 		if(!is_null($rpc_res)) {
-			sql::remove($dataentry->$email);
+			sql::remove($dataentry->email);
 			return $rpc_res;
 		}
 
@@ -62,7 +62,7 @@ class library {
 	public static function list_entries() {
 		# this does not need to use the RPC.
 		# just forward this to the sql module.
-		return sql::listentries($email);
+		return sql::list_entries();
 	}
 
 

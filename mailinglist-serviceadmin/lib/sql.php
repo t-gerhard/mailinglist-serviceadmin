@@ -55,7 +55,7 @@ class sql {
 			$statement = self::$db->prepare("DELETE FROM '" . config::$sqlite_table . "' 
 				WHERE email = :email");
 
-			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
+			$statement->bindValue(':email', $email, SQLITE3_TEXT);
 
 			$statement->execute();
 		
@@ -70,17 +70,27 @@ class sql {
 		return "";
 	}
 
-	public static function list_entry() {
+	public static function list_entries() {
 			self::open_db();
 			
 			$statement = "SELECT * FROM '" . config::$sqlite_table . "';";
 			
 			$query = self::$db->query($statement);
-			$return = $query->fetch_all();
+			$res = array();
+			while ($row = $query->fetchArray() ) {
+				$res[] = new entry(
+					$row['email'],
+					$row['fullname'],
+					$row['title'],
+					$row['status'],
+					$row['faculty'],
+					$row['project']
+				);
+			}
 
 			self::close_db();
 			
-			return $return;			
+			return $res;			
 	}
 }
 

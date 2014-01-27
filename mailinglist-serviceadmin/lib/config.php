@@ -6,7 +6,7 @@ class config {
 
 	# SQL settings
 
-	public static $sqlite_database = "/var/sqlite/database";
+	public static $sqlite_database = "/var/www/mailinglist";
 
 	# select the table.
 	# shema:
@@ -20,7 +20,7 @@ class config {
 	#	project VARCHAR(100)
 	# );
 
-	public static $sqlite_table = "";
+	public static $sqlite_table = "mailing";
 
 
 
