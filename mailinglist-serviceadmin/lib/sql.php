@@ -21,7 +21,7 @@ class sql {
 
 	public static function add($entry) {
 		if(get_class($entry) == "entry") {
-			open_db();
+			self::open_db();
 			
 			$statement = $this->db->prepare("INSERT INTO '" . $sqlite_table . "' (email,fullname,title,status,faculty,project) 
 											VALUES (:email,:fullname,:title,:status,:faculty,:project);");
@@ -37,7 +37,7 @@ class sql {
 				return $error_message;				
 			}
 
-			close_db();	
+			self::close_db();	
 
 		} else {
 			return "SQL: Got the wrong attribute class";
@@ -49,7 +49,7 @@ class sql {
 	
 	public static function remove($email) {
 		if($email != "") {
-			open_db();
+			self::open_db();
 			
 			$statement = $this->db->prepare("DELETE FROM '" . $sqlite_table . "' 
 				WHERE email = :email");
@@ -60,7 +60,7 @@ class sql {
 				return $error_message;				
 			}
 
-			close_db();	
+			self::close_db();	
 
 		} else {
 			return "SQL: Got no E-Mail Address to remove";
@@ -71,14 +71,14 @@ class sql {
 	}
 
 	public static function list_entry() {
-			open_db();
+			self::open_db();
 			
 			$statement = "SELECT * FROM '" . $sqlite_table . "';";
 			
 			$query = sqlite_query($this->db, $statement);
 			$return = sqlite_fetch_all($query, SQLITE_ASSOC);
 
-			close_db();
+			self::close_db();
 			
 			return $return;			
 	}
