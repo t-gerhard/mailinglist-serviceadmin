@@ -7,7 +7,7 @@ class sql {
 	private static $db;
 	
 	private static function open_db() {
-		$this->db = sqlite_open ($sqlite_database, 0666, $error_message);
+		$this->db = SQLite3::open ($sqlite_database, 0666, $error_message);
 		if($error_message != "") {
 			return $error_message;
 		}
@@ -16,7 +16,7 @@ class sql {
 	}
 
 	private static function close_db() {
-		sqlite_close($this->db);
+		SQLite3::close($this->db);
 	}
 
 	public static function add($entry) {
@@ -33,7 +33,7 @@ class sql {
 			$statement->bindValue(':faculty', $entry->faculty, SQLITE3_TEXT);
 			$statement->bindValue(':project', $entry->project, SQLITE3_TEXT);
 
-			if(!sqlite_exec($this->db, $statement->execute(), $error_message)) {
+			if(!SQLite3::exec($this->db, $statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -56,7 +56,7 @@ class sql {
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
 
-			if(!sqlite_exec($this->db, $statement->execute(), $error_message)) {
+			if(!SQLite3::exec($this->db, $statement->execute(), $error_message)) {
 				return $error_message;				
 			}
 
@@ -75,8 +75,8 @@ class sql {
 			
 			$statement = "SELECT * FROM '" . $sqlite_table . "';";
 			
-			$query = sqlite_query($this->db, $statement);
-			$return = sqlite_fetch_all($query, SQLITE_ASSOC);
+			$query = SQLite3::query($this->db, $statement);
+			$return = SQLite3::fetch_all($query, SQLITE_ASSOC);
 
 			self::close_db();
 			
