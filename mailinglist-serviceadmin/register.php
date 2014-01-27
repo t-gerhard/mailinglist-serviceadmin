@@ -15,10 +15,10 @@ public function handleForm() {
 	}
 }
 
-if(isset($_POST['email']) {
+if(isset($_POST['email'])) {
 	handleForm();
 } #else {
-#	Header("Location: " . $_SERVER['HTTP_REFERER'];);
+#	Header("Location: " . $_SERVER['HTTP_REFERER']);
 #	exit(); 
 #}
 
