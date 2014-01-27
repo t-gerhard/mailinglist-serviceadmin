@@ -35,7 +35,7 @@ if(isset($_POST['email'])) {
 					<td>Title</td>
 					<td>
 						<select name="title">
-							<option value="">-</option>
+							<option value=" ">-</option>
 							<option value="Doctor">Doctor</option>
 						</select>
 					</td>
@@ -52,7 +52,7 @@ if(isset($_POST['email'])) {
 					<td>Status</td>
 					<td>
 						<select name="status">
-							<option value="">Working</option>
+							<option value="Working">Working</option>
 							<option value="Doctor">Drinking</option>
 						</select>
 					</td>
@@ -61,13 +61,17 @@ if(isset($_POST['email'])) {
 					<td>Faculty</td>
 					<td>
 						<select name="faculty">
-							<option value="">Informatik</option>
+							<option value="Informatik">Informatik</option>
 							<option value="Doctor">Eletrotechnik</option>
 						</select>
 					</td>
-							<option value="Doctor">Eletrotechnik</option>
-						</select>
+				</tr>
+				<tr>
+					<td>Project</td>
+					<td>
+						<input type="text" name="project" />
 					</td>
+						
 				</tr>
 				<tr>
 					<td colspan="2"><button type="submit">Submit</button> <button type="Cancel">Cancel</button></td>
