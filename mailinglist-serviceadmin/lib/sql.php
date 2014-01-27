@@ -10,7 +10,7 @@ class sql {
 
 		$error_message = NULL;
 
-		self::$db = SQLite3::open ($sqlite_database, 0666, $error_message);
+		self::$db = SQLite3::open (config::$sqlite_database, 0666, $error_message);
 		if($error_message != "") {
 			return $error_message;
 		}
@@ -26,7 +26,7 @@ class sql {
 		if(get_class($entry) == "entry") {
 			self::open_db();
 			
-			$statement = self::$db->prepare("INSERT INTO '" . $sqlite_table . "' (email,fullname,title,status,faculty,project) 
+			$statement = self::$db->prepare("INSERT INTO '" . config::$sqlite_table . "' (email,fullname,title,status,faculty,project) 
 											VALUES (:email,:fullname,:title,:status,:faculty,:project);");
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
@@ -54,7 +54,7 @@ class sql {
 		if($email != "") {
 			self::open_db();
 			
-			$statement = self::$db->prepare("DELETE FROM '" . $sqlite_table . "' 
+			$statement = self::$db->prepare("DELETE FROM '" . config::$sqlite_table . "' 
 				WHERE email = :email");
 
 			$statement->bindValue(':email', $entry->email, SQLITE3_TEXT);
@@ -76,7 +76,7 @@ class sql {
 	public static function list_entry() {
 			self::open_db();
 			
-			$statement = "SELECT * FROM '" . $sqlite_table . "';";
+			$statement = "SELECT * FROM '" . config::$sqlite_table . "';";
 			
 			$query = SQLite3::query(self::$db, $statement);
 			$return = SQLite3::fetch_all($query, SQLITE_ASSOC);
