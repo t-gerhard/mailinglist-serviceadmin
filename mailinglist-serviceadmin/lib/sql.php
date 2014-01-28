@@ -22,6 +22,13 @@ class sql {
 		self::$db->close();
 	}
 
+
+
+
+
+	# adds a new user to the list.
+	# argument is a data entry like in data.php
+	# returns null on success, or an error string on error.
 	public static function add($entry) {
 		if(get_class($entry) == "entry") {
 			self::open_db();
@@ -48,6 +55,10 @@ class sql {
 
 	}
 	
+
+	# removes a user from the list
+	# argument is the user's email address
+	# returns null on success, or an error string on error.
 	public static function remove($email) {
 		if($email != "") {
 			self::open_db();
@@ -70,6 +81,10 @@ class sql {
 		return "";
 	}
 
+
+
+	# list all users
+	# returns an array of entries like in data.php
 	public static function list_entries() {
 			self::open_db();
 			
