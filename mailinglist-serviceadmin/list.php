@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>
-		Registration
+		Manage List
 		</title>
 	</head>
 	<body>

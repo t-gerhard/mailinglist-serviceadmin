@@ -11,7 +11,7 @@ function removeAddress() {
 if(isset($_POST['email'])) {
 	removeAddress();
 } else {
-	echo "Error: No email address found";
+	echo "Error: email address not found";
 }
 ?>
 
