@@ -1,6 +1,0 @@
-register.php, remove.php, list.php are available via web. all files in lib/ should not be publicly available.
-
-SQL and RPC can be configured via lib/config.php
-
-the usage of every file is described at the top of that file.
-dependencies.png shows the dependencies between the different modules (TODO)

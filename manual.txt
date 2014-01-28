@@ -1,0 +1,45 @@
+Setup
+=====
+
+1) Required programs:
+	* A web server with PHP integration
+	* SQLite3
+	* SQLite3 with PHP integration
+
+2) Authorization has to be done by the web server.
+	* Make sure that lib/ is not available to the web.
+	* list.php and remove.php should only be available to admins
+	* register.php should be available to everyone who is allowed to register (maybe even public).
+
+3) Set up lib/config.php
+	* Redirect: Enter the URL a user should be redirected to after successful registration.
+	* SQLite: Enter the path to the database, and the table name. If you don't have a table, use the CREATE TABLE command provided in config.php
+	* RPC: DOES NOT WORK
+
+
+
+Usage
+=====
+
+I   Register
+
+	Registering is done through register.php. It can be accessed via GET or POST
+		* GET:  show a form. This is optional and does not have to be the primary way to enter data.
+			Instead, you can use a different form on any website which just sends the correct POST data.
+
+		* POST: add the user to the mailing list. formdata must consist of the following:
+			* email
+			* fullname
+			* title
+			* status
+			* faculty
+			* project
+
+II  Manage
+
+	Use list.php to get an overview of registered users.
+	Every list entry has a "remove" button, which removes the respective entry.
+
+
+III Additional API
+	Removing is done over remove.php. This is only accessed via POST, and formdata needs to have an 'email' field.

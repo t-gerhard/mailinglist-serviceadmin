@@ -1,17 +1,22 @@
 <?php
 class config {
-	#some thing something same thing
+	#redirect after successful register:
 
 	public static $redirect_target = "http://ilikecheese.com";
+
+
+
+
+
 
 	# SQL settings
 
 	public static $sqlite_database = "/var/www/mailinglist";
 
-	# select the table.
-	# shema:
+	# select the table of the database.
+	# required shema:
 	#
-	# CREATE TABLE tablename (
+	# CREATE TABLE ? (
 	#	email VARCHAR(100) PRIMARY KEY NOT NULL,
 	#	fullname VARCHAR(100) NOT NULL,
 	#	title VARCHAR(50),
