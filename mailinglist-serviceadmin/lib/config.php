@@ -34,11 +34,9 @@ class config {
 
 
 	# RPC settings
-	public static $rpc_host = "";
-	public static $rpc_port = "";
+	public static $rpc_url = "";
 	public static $rpc_username = "";
 	public static $rpc_password = "";
-
+  public static $rpc_mailinglist = "";
 }
 ?>
-
