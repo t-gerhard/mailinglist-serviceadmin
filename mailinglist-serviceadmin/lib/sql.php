@@ -51,7 +51,7 @@ class sql {
 			return "SQL: Got the wrong attribute class";
 		}
 
-		return "";
+		return null;
 
 	}
 	
@@ -78,7 +78,7 @@ class sql {
 		}
 
 
-		return "";
+		return null;
 	}
 
 

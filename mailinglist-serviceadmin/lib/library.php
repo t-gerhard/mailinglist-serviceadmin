@@ -11,6 +11,7 @@ class library {
 	# returns null on success, or an error string on error.
 	public static function add($dataentry) {
 
+	
 		# add data entry to SQL database. on error, return the error message
 		$sql_res = sql::add($dataentry);
 		if(!is_null($sql_res)) {

@@ -27,11 +27,8 @@ class config {
 
 	public static $sqlite_table = "mailing";
 
-
-
-
-
-
+	# Whether to send out emails for mailing list (un)subscription, "1" or "0"
+	public static $quiet = "0";
 
 	# RPC settings
 	public static $rpc_url = "";
